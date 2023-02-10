@@ -1,30 +1,39 @@
-2. // C++ code for error detecting code using CRC-CCITT(16-bits)
+// C++ code for error detecting code using CRC-CCITT(16-bits)
 
-#include<bits//stdc++.h>
+#include <iostream>
+#include <string>
 using namespace std;
 
-string crc(string data, string poly, bool errChk){
+string crc(string data, string poly, bool errChk)
+{
     string rem = data;
-    if(!errChk){
-        for(int i = 0; i < poly.length()-1; i++)
+    if (!errChk)
+    {
+        for (int i = 0; i < poly.length() - 1; i++)
             rem.append("0");
     }
-    for(int i = 0; i < rem.length()-poly.length()+1; i++){
-        if(rem[i] == '1'){
-            for(int j = 0; j < poly.length(); j++){
-                if(rem[i+j] == poly[j]){
-                    rem[i+j] = '0';
+    for (int i = 0; i < rem.length() - poly.length() + 1; i++)
+    {
+        if (rem[i] == '1')
+        {
+            for (int j = 0; j < poly.length(); j++)
+            {
+                if (rem[i + j] == poly[j])
+                {
+                    rem[i + j] = '0';
                 }
-                else{
-                    rem[i+j] = '1';
+                else
+                {
+                    rem[i + j] = '1';
                 }
             }
         }
     }
-    return rem.substr(rem.length()-poly.length()+1);
-}   
+    return rem.substr(rem.length() - poly.length() + 1);
+}
 
-int main(){
+int main()
+{
     string data, poly;
     cout << "Enter data to be sent: ";
     cin >> data;
@@ -33,18 +42,17 @@ int main(){
     cin >> poly;
 
     string rem = crc(data, poly, 0);
-    string codeword = data+rem;
+    string codeword = data + rem;
     cout << "Remainder : " << rem << endl;
     cout << "Codeword : " << codeword << endl;
 
-    //Error checking
+    // Error checking
     string newCodeword;
     cout << "Enter data that is recieved : ";
     cin >> newCodeword;
     string newRem = crc(newCodeword, poly, 1);
-    if(stoi(newRem) == 0)
+    if (stoi(newRem) == 0)
         cout << "No error in data transmission" << endl;
-    else    
+    else
         cout << "Error in data transmission" << endl;
-
 }
