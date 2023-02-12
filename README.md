@@ -1,21 +1,4 @@
-# JSSSTU Computer Networks Lab
-
-|***Course title: Computer Networks Laboratory***|***Course Code: 20CS58L***|
-| :- | :- |
-|***Credits:1.5***|***Contact Hours (L: T: P): 0:0:39***|
-|***Type of Course: Practical***|***Category: Professional Core Course***|
-|***CIE Marks: 50***|***SEE Marks: 50***|
-
-**Pre-requisite:** Data Communication, Computer Networks.
-
-**Course Objectives:** The course should enable the students to:
-
-|**Sl. No.**|**Course Objectives**|
-| :-: | :-: |
-|1|Introduction to different commands commonly used in networking.|
-|2|Provide hands on experience related to error detection, routing and congestion control algorithms.|
-|3|Simulate the working of different networks using simulation software. [NS2/ NS3] |
-
+# Computer Networks Lab
 
 |**Weeks**|**List of Programs**|
 | :-: | :-: |
