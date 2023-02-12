@@ -26,50 +26,53 @@ int main(){
         cout << "Stored Buffer Size: " << stored_buffer_size <<endl;
         stored_buffer_size -= output_packet_size;
     }
-
+    return 0;
 }
 
 ****************************************************************************************************************************
 // CPP program for token bucket
-
 #include <iostream>
 #include <queue>
+using namespace std;
 
-const int BUCKET_SIZE = 20;
-const int TOKEN_RATE = 5;
+const int BUCKET_SIZE = 5;
+const int TOKEN_RATE = 2;
 
-void produceToken(int &tokenCount) {
-  if (tokenCount + TOKEN_RATE <= BUCKET_SIZE) {
-    tokenCount += TOKEN_RATE;
-  } else {
-    tokenCount = BUCKET_SIZE;
-  }
-}
-
-bool consumeToken(int &tokenCount) {
-  if (tokenCount > 0) {
-    tokenCount--;
-    return true;
-  }
-  return false;
-}
-
-int main() {
-  std::queue<int> packets;
-  int tokenCount = BUCKET_SIZE;
-
-  while (true) {
-    produceToken(tokenCount);
-    int packetSize = rand() % 10;
-    if (packetSize <= tokenCount) {
-      packets.push(packetSize);
-      tokenCount -= packetSize;
-      std::cout << "Packet of size " << packetSize << " added to queue" << std::endl;
-    } else {
-      std::cout << "Packet discarded due to lack of tokens" << std::endl;
+void produceToken(int &tokenCount)
+{
+    if (tokenCount + TOKEN_RATE <= BUCKET_SIZE)
+    {
+        tokenCount += TOKEN_RATE;
     }
-    std::cout << "Token count: " << tokenCount << std::endl;
-    std::cout << "Queue size: " << packets.size() << std::endl;
-  }
-  return 0;
+    else
+    {
+        tokenCount = BUCKET_SIZE;
+    }
+}
+
+int main()
+{
+    queue<int> packets;
+    int tokenCount = BUCKET_SIZE;
+    int i = 0;
+    while (i != 25)
+    {
+        produceToken(tokenCount);
+        int packetSize = rand() % 10;
+        if (packetSize <= tokenCount)
+        {
+            packets.push(packetSize);
+            tokenCount -= packetSize;
+            cout << "Packet of size " << packetSize << " added to queue" << endl;
+        }
+        else
+        {
+            cout << "Packet of size " << packetSize << " discarded due to lack of tokens" << endl;
+        }
+        cout << "Token count: " << tokenCount << std::endl;
+        cout << "Queue size: " << packets.size() << endl;
+        cout << "\n";
+        i++;
+    }
+    return 0;
 }
