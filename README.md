@@ -11,7 +11,7 @@
 |6|Write a program for simple RSA algorithm to encrypt and decrypt the data.|
 |7|Write a program for congestion control using leaky bucket algorithm and token bucket algorithm.|
 |8|Write a program to implement random early detection (RED) congestion control algorithm.|
-|**PART-B: Simulation Experiments using NS2/ NS3/ NetSim or any other suitable simulation software**|
+|**PART-B: Simulation Experiments using NS2 simulation software**|
 |<p></p><p>9</p>|Implement three nodes point – to – point network with duplex links between them. Set the queue size, vary the bandwidth and find the number of packets dropped.|
 |<p></p><p>10</p>|Implement transmission of ping messages/trace route over a network topology consisting of 6 nodes and find the number of packets dropped due to congestion|
 |11|Implement an Ethernet LAN using n nodes and set multiple traffic nodes and plot congestion window for different source / destination.|
