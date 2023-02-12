@@ -42,15 +42,9 @@ n = p*q
 phi = (p-1)*(q-1)
 
 e = find_coprime(phi)
-
 d = find_privatekey(e, phi)
-
 p = input("Enter plaintext: ")
-
 ct = rsa_encrypt(p,e,n)
-
 print("Ciphertext: ", ct)
-
 pt = rsa_decrypt(ct,d,n)
-
 print("Plaintext: ", pt)
